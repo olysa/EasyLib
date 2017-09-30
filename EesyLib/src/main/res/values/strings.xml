@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EasyLib</string>
+
+
+    <string name="common_error_msg">请求错误</string>
+    <string name="common_no_network_msg">网络连接超时</string>
+    <string name="common_empty_msg">暂无数据</string>
+
+
+    <string name="common_loading_message">Loading...</string>
+</resources>
