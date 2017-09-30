@@ -3,4 +3,4 @@
 
 【EasyLib】中放置 与业务无关的代码
 
-【example】中放置 用于测试【EasyLib中与业务无关的代码】
+【example】中放置 用于展示如何使用【EasyLib中与业务无关的代码】
