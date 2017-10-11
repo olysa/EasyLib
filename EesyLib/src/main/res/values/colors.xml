@@ -18,4 +18,7 @@
         <item>@color/gplus_color_3</item>
         <item>@color/gplus_color_4</item>
     </integer-array>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorWhite">#55ffffff</color>
 </resources>

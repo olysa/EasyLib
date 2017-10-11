@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- CircularProgressBar -->
+    <!-- CircularProgressBar xml中使用的加载圈圈 -->
     <declare-styleable name="CircularProgressBar">
         <attr name="cpbStyle" format="reference"/>
         <attr name="cpb_color" format="color"/>
@@ -10,5 +10,31 @@
         <attr name="cpb_max_sweep_angle" format="integer"/>
         <attr name="cpb_sweep_speed" format="float"/>
         <attr name="cpb_rotation_speed" format="float"/>
+    </declare-styleable>
+
+    <!--网络访问的请求圈圈样式  弹窗Dialog-->
+    <style name="alert_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/colorTransparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+
+    <!--自定义的转圈圈 xml中使用，自带动画-->
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
     </declare-styleable>
 </resources>

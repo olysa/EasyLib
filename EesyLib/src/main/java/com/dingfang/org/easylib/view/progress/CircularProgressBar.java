@@ -13,7 +13,7 @@ import com.dingfang.org.easylib.R;
 /**
  * create by pec
  * 2017/09/29
- * 加载进度
+ * 加载进度  用于布局文件
  */
 public class CircularProgressBar extends ProgressBar {
 
