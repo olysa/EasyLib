@@ -23,6 +23,10 @@ import java.lang.reflect.Type;
 
 import okhttp3.Response;
 
+/**
+ * Json数据转换
+ * @param <T>
+ */
 public abstract class JsonCallback<T> extends AbsCallback<T> {
 
     private Type type;

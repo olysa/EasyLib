@@ -25,12 +25,12 @@ public class SimpleResponse implements Serializable {
     private static final long serialVersionUID = -1477609349345966116L;
 
     public int status;
-    public String message;
+    public String returnMsg;
 
     public LzyResponse toLzyResponse() {
         LzyResponse lzyResponse = new LzyResponse();
         lzyResponse.status = status;
-        lzyResponse.message = message;
+        lzyResponse.returnMsg = returnMsg;
         return lzyResponse;
     }
 }

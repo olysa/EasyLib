@@ -7,7 +7,7 @@ import com.dingfang.org.easylib.view.progress.HHProgressAlertDialog;
 import com.lzy.okgo.request.base.Request;
 
 /**
- * 网络请求专用 请求中回调
+ * 普通网络请求专用 请求中回调
  * Created by zuoqing on 2017/10/11.
  */
 
@@ -18,7 +18,7 @@ public abstract class DialogCallback<T> extends JsonCallback<T> {
     private void initDialog(Activity activity) {
         progressAlertDialog = new HHProgressAlertDialog(activity);
         progressAlertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        progressAlertDialog.setCanceledOnTouchOutside(false);
+        progressAlertDialog.setCanceledOnTouchOutside(false);//空白点击取消弹窗
         progressAlertDialog.setCancelable(true); //设置返回键可以取消请求
     }
 

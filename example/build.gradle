@@ -38,6 +38,16 @@ dependencies {
     //okhttp-okgo 网络请求框架  https://github.com/jeasonlzy/okhttp-OkGo
     compile 'com.lzy.net:okgo:3.0.4'
 
+    //google解析
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.readystatesoftware.chuck:library:1.0.4'
+
+    //上传头像，选择图片框架
+    compile 'com.lzy.widget:ninegridview:0.2.1'
+    compile 'com.lzy.widget:imagepicker:0.3.2'
+    compile 'com.lzy.widget:view-core:0.2.1'
+
+    //图片框架使用
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

@@ -133,7 +133,7 @@ public class JsonConvert<T> implements Converter<T> {
                 int code = lzyResponse.status;
                 //这里的0是以下意思
                 //一般来说服务器会和客户端约定一个数表示成功，其余的表示失败，这里根据实际情况修改
-                if (code == 0) {
+                if (code == 1) {
                     //noinspection unchecked
                     return (T) lzyResponse;
                 } else if (code == 104) {
@@ -142,7 +142,7 @@ public class JsonConvert<T> implements Converter<T> {
                     throw new IllegalStateException("用户收取信息已过期");
                 } else {
                     //直接将服务端的错误信息抛出，onError中可以获取
-                    throw new IllegalStateException("错误代码：" + code + "，错误信息：" + lzyResponse.message);
+                    throw new IllegalStateException("错误代码：" + code + "，错误信息：" + lzyResponse.returnMsg);
                 }
             }
         }

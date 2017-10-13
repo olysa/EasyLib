@@ -11,14 +11,14 @@ public class LzyResponse<T> implements Serializable{
     private static final long serialVersionUID = 5213230387175987834L;
 
     public int status;
-    public String message;
+    public String returnMsg;
     public T result;
 
     @Override
     public String toString() {
         return "LzyResponse{\n" +//
                 "\tcode=" + status + "\n" +//
-                "\tmsg='" + message + "\'\n" +//
+                "\tmsg='" + returnMsg + "\'\n" +//
                 "\tdata=" + result + "\n" +//
                 '}';
     }
