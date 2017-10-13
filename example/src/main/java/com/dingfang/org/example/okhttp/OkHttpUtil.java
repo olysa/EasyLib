@@ -40,6 +40,7 @@ public class OkHttpUtil {
 
     /**
      * 获得单例
+     *
      * @return
      */
     public static OkHttpUtil getInstance() {
@@ -48,9 +49,10 @@ public class OkHttpUtil {
 
     /**
      * 全局配置信息
+     *
      * @param application
      */
-    public  void init(Application application) {
+    public void init(Application application) {
         //---------这里给出的是示例代码,告诉你可以这么传,实际使用的时候,根据需要传,不需要就不传-------------//
         HttpHeaders headers = new HttpHeaders();
 //        headers.put("commonHeaderKey1", "commonHeaderValue1");    //header不支持中文，不允许有特殊字符

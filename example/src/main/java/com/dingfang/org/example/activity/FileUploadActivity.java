@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -168,6 +169,7 @@ public class FileUploadActivity extends BaseActivity {
                 if (imageItems != null && imageItems.size() > 0) {
                     imageItem = imageItems.get(0);
                     tvImages.setText(imageItem.path);
+                    Log.e("error", ""+imageItem.path);
                     Bitmap bm = BitmapFactory.decodeFile(imageItem.path);
                     show_images.setImageBitmap(bm);
                 } else {
@@ -198,8 +200,8 @@ public class FileUploadActivity extends BaseActivity {
 //                .params("param2", "paramValue2")//
 //                .params("file1",new File("文件路径"))   //这种方式为一个key，对应一个文件
 //                .params("file2",new File("文件路径"))
-//                .params("file3",new File("文件路径"))
-                .addFileParams("file", files)           // 这种方式为同一个key，上传多个文件
+                .params("p123.jpg",new File(imageItem.path))
+//                .addFileParams("file", files)           // 这种方式为同一个key，上传多个文件
                 .execute(new JsonCallback<LzyResponse<Object>>() {
                     @Override
                     public void onStart(Request<LzyResponse<Object>, ? extends Request> request) {

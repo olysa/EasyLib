@@ -10,10 +10,11 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
+
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -37,6 +38,8 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //okhttp-okgo 网络请求框架  https://github.com/jeasonlzy/okhttp-OkGo
     compile 'com.lzy.net:okgo:3.0.4'
+    //断点下载
+    compile 'com.lzy.net:okserver:2.0.5'
 
     //google解析
     compile 'com.google.code.gson:gson:2.8.0'

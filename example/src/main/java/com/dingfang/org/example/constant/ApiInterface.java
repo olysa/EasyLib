@@ -32,7 +32,6 @@ public class ApiInterface {
     public static final String SERVER = "http://server.jeasonlzy.com/OkHttpUtils/";
 
 
-
     /************************************************    以下是api接口   *****************************************************************/
 
     /**
@@ -43,7 +42,8 @@ public class ApiInterface {
     /**
      * 云田智慧app下载
      */
-    public static String APP_DOWNLOAD_PATH = "/files/download/apk_reader/yuntianzhihui.apk";
+//    public static String APP_DOWNLOAD_PATH = "/files/download/apk_reader/yuntianzhihui.apk";
+    public static String APP_DOWNLOAD_PATH = "http://121.29.10.1/f5.market.mi-img.com/download/AppStore/0b8b552a1df0a8bc417a5afae3a26b2fb1342a909/com.qiyi.video.apk";
 
     /**
      * 上传接口

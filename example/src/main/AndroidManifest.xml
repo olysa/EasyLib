@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -26,10 +27,12 @@
         </activity>
 
         <!--下载页面-->
-        <activity android:name=".activity.DownloadActivity"
+        <activity
+            android:name=".activity.DownloadActivity"
             android:screenOrientation="portrait"/>
         <!--上传页面-->
-        <activity android:name=".activity.FileUploadActivity"
+        <activity
+            android:name=".activity.FileUploadActivity"
             android:screenOrientation="portrait"/>
 
     </application>

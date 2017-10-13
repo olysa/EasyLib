@@ -14,6 +14,14 @@
         android:text="开始下载"
         android:textAllCaps="false"/>
 
+    <Button
+        android:id="@+id/installapk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="安装apk"
+        android:textAllCaps="false"
+        android:visibility="gone"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"

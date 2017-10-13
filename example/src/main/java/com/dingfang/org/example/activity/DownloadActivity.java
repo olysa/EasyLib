@@ -1,9 +1,14 @@
 package com.dingfang.org.example.activity;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
 import android.text.format.Formatter;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +18,7 @@ import android.widget.Toast;
 
 import com.dingfang.org.easylib.base.BaseActivity;
 import com.dingfang.org.easylib.view.NumberProgressBar;
+import com.dingfang.org.example.BuildConfig;
 import com.dingfang.org.example.R;
 import com.dingfang.org.example.constant.ApiInterface;
 import com.dingfang.org.example.okhttp.callback.FileCallback;
@@ -38,6 +44,8 @@ public class DownloadActivity extends BaseActivity {
 
     @BindView(R.id.fileDownload)
     Button btnFileDownload;
+    @BindView(R.id.installapk)
+    Button installapk;
     @BindView(R.id.downloadSize)
     TextView tvDownloadSize;
     @BindView(R.id.tvProgress)
@@ -49,6 +57,8 @@ public class DownloadActivity extends BaseActivity {
 
     private NumberFormat numberFormat; //数字格式转换类
 
+    private String apkPath;
+    private DownloadActivity _this;
 
     @Override
     protected int getContentViewLayoutID() {
@@ -65,6 +75,8 @@ public class DownloadActivity extends BaseActivity {
      * 全局初始化
      */
     private void init() {
+        _this = this;
+
         numberFormat = NumberFormat.getPercentInstance();
         numberFormat.setMinimumFractionDigits(2);
 
@@ -97,7 +109,7 @@ public class DownloadActivity extends BaseActivity {
     @OnClick(R.id.fileDownload)
     public void onClicked(View view) {
         //下载任务
-        OkGo.<File>get(ApiInterface.BASE_URL + ApiInterface.APP_DOWNLOAD_PATH)
+        OkGo.<File>get(ApiInterface.APP_DOWNLOAD_PATH)
                 .tag(this)
                 .execute(new FileCallback("ytzhihui.apk") {
 
@@ -109,7 +121,12 @@ public class DownloadActivity extends BaseActivity {
                     @Override
                     public void onSuccess(Response<File> response) {
 //                handleResponse(response);
-//                        btnFileDownload.setText("下载完成");
+//                       btnFileDownload.setText("下载完成");
+                        if (response.isSuccessful()) {
+                            apkPath = response.body().getAbsolutePath();
+                            installapk.setVisibility(View.VISIBLE);
+                            Log.e("error", "" + response.body().getAbsolutePath());
+                        }
                     }
 
                     @Override
@@ -135,7 +152,40 @@ public class DownloadActivity extends BaseActivity {
                 });
     }
 
+    @OnClick(R.id.installapk)
+    public void btnInstallApkClicked() {
+        installApk(new File(apkPath), _this);
+    }
 
+    /**
+     * 安装app
+     */
+    public static void installApk(File file, Activity activity) {
+//        String apkFileSignature = SignatureUtil.getSignatureOfApk(activity, file.getAbsolutePath());
+//        String currentAppSign = SignatureUtil.getCurrentAppSign(activity);
+        //一般要检查签名是否一致
+//        if (!TextUtils.equals(apkFileSignature, currentAppSign)) {
+//            return;
+//        }
+
+        Intent intent = new Intent();
+        // 执行动作
+        intent.setAction(Intent.ACTION_VIEW);
+        // 执行的数据类型
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            Uri contentUri = FileProvider.getUriForFile(activity, BuildConfig.APPLICATION_ID + ".fileProvider", file);
+            intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
+        } else {
+            intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        activity.startActivity(intent);
+        //kill 本程序
+        android.os.Process.killProcess(android.os.Process.myPid());
+        //正常退出程序
+//        System.exit(0);
+    }
 
 
     @Override

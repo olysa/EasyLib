@@ -28,7 +28,9 @@ import com.lzy.ninegrid.NineGridView;
 
 import java.io.File;
 
-
+/**
+ * 结合ImagePicker使用
+ */
 public class GlideImageLoader implements ImageLoader, NineGridView.ImageLoader {
     @Override
     public void onDisplayImage(Context context, ImageView imageView, String url) {
