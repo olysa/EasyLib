@@ -5,7 +5,7 @@ import android.view.View;
 import com.dingfang.org.easylib.helper.EventCenter;
 
 /**
- * 子类继承该 基类
+ * 子类继承 该基类
  * Created by zuoqing on 2017/9/29.
  */
 public abstract class BaseActivity extends BaseAppCompatActivity implements BaseView{
